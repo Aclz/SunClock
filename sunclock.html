@@ -130,7 +130,6 @@ const lon = 60.57*Math.PI/180;
 const timeZone = 5;
 const shortestDayCorrection = 10.75;
 const firstDaysOfMonths = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
-const specialDays = [365/4 - 10.75, 365/2 - 10.75, 365 - 10.75];
 const celsiusTemperature = 0;
 const altitude = 350; //in meters above sea level
 const seaLevelPressure = 760*133.3/1000; //in kPa
@@ -155,6 +154,7 @@ const H = 1; //"Высота" гномона (длина относительн�
 const timeGnomonNeedleLength = 360; //px
 
 //Вычисляемые переменные
+const specialDays = [365/4 - shortestDayCorrection, 365/2 - shortestDayCorrection, 365 - shortestDayCorrection];
 var clock1ShiftLeft = 800/2 - clock1ScaleFactor;
 var clock2ShiftLeft = 800/2 - clock2ScaleFactor;
 var clock3ShiftLeft = timeGnomonNeedleLength/1.5;
