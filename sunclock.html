@@ -150,7 +150,6 @@ const timeEquationTopX = 0.33;
 const timeEquationTopY = 1.65;
 
 const hourLabelShift = -0.1;
-const H = 1; //"Высота" гномона (длина относительно центра циферблата до кончика)
 const timeGnomonNeedleLength = 360; //px
 
 //Вычисляемые переменные
@@ -164,7 +163,7 @@ const clock4ShiftDown = 140;
 var timeshift = ((lon*180/Math.PI)*24/360 - timeZone)/24;
 const dateGnomonNeedleLength = clock2ScaleFactor; //px
 var clockFaceDistorsion = 1.7;
-var gnomonHeight = H*Math.sin(lat);
+var gnomonHeight = Math.sin(lat);
 var barometricPressure = seaLevelPressure*Math.exp(-0.029*9.81*altitude/8.31/(celsiusTemperature + 273)); //in kPa
 var timeEquationWidth = 2 - 2*timeEquationTopX;
 var timeEquationHeight = 2.08 - timeEquationTopY;
@@ -285,7 +284,7 @@ function gnomonTopProjection(day, hours) {
 	
 	//Смещения вершины гномона относительно начала координат
 	var xInclinedGnomonDelta = 0;
-	var yInclinedGnomonDelta = -H*Math.cos(lat);
+	var yInclinedGnomonDelta = -Math.cos(lat);
 	   
 	return {
 		x: (xVerticalGnomon + xInclinedGnomonDelta)*(zeta(day, hours) > 0 ? 1 : -1),
